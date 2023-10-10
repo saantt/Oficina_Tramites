@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="189.0" prefWidth="432.0" style="-fx-background-color: #C1F58D;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.VistaInicialController">
+    <children>
+        <Label layoutX="98.0" layoutY="32.0" prefHeight="39.0" prefWidth="353.0" text="OFICINA DE TRAMITES" textFill="#11a14d">
+            <font>
+                <Font name="System Bold Italic" size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="171.0" layoutY="81.0" text="¿QUIEN ERES?" textFill="#f5f000">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+            <effect>
+                <DropShadow />
+            </effect>
+        </Label>
+        <Button fx:id="btnAbrirPropietario" layoutX="96.0" layoutY="132.0" mnemonicParsing="false" onAction="#abrirPropietario" prefHeight="39.0" prefWidth="104.0" text="PROPIETARIO" textFill="#0b0000">
+            <effect>
+                <DropShadow />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Button fx:id="btnAbrirComprador" layoutX="274.0" layoutY="132.0" mnemonicParsing="false" onAction="#abrirComprador" prefHeight="39.0" prefWidth="104.0" text="COMPRADOR">
+            <effect>
+                <DropShadow />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor></Button>
+        <Separator layoutX="2.0" layoutY="71.0" prefHeight="5.0" prefWidth="475.0" />
+    </children>
+</AnchorPane>
