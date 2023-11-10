@@ -58,13 +58,13 @@ public class ModelFactoryController implements lModelFactoryService,Runnable {
 		comprador.setCelular("3128864250");
 		comprador.setContraenia("Santiago05$");
 		comprador.setDireccion("Ciuadela Comfenalco mz H39");
-		comprador.setEmail("sgomeeez05@gmail.com");
+		comprador.setEmail("ryrivera@uniquindio.edu.co");
 		comprador.setEstadoCivil("Soltero");
 		comprador.setGenero("Hombre");
 		comprador.setOcupacion("Estudiante");
 		comprador.setUsuario("Santt");
-		comprador.setPreguntaSeguridad("¿Cuantos años tengo?");
-		comprador.setRespuestaSeguridad("20");
+		comprador.setPreguntaSeguridad("¿parcial?");
+		comprador.setRespuestaSeguridad("2");
 		
 		Propietario propietario = new Propietario();
 		propietario.setNombre("Carlos");

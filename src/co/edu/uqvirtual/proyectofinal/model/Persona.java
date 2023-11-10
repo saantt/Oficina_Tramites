@@ -12,16 +12,16 @@ public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // ATRIBUTOS
-    protected String usuario;
-    protected String contraenia;
-    private String nombre;
-    private String direccion;
-    private String cedula;
-    private String celular;
-    private String email;
-    private String genero;
-    private String preguntaSeguridad;
-    private String respuestaSeguridad;
+    public String usuario;
+    public String contraenia;
+    public String nombre;
+    public String direccion;
+    public String cedula;
+    public String celular;
+    public String email;
+    public String genero;
+    public String preguntaSeguridad;
+    public String respuestaSeguridad;
 
     public Persona() {
     }

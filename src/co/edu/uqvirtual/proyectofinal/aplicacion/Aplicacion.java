@@ -31,6 +31,7 @@ public class Aplicacion extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("OFICINA TRAMITES");
+        
         mostrarVentanaPrincipal();
     }
     public static void main(String[] args) {

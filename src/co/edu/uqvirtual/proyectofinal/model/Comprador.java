@@ -30,6 +30,10 @@ public class Comprador extends Persona implements Serializable {
 		this.estadoCivil = estadoCivil;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Comprador(Vehiculo vehiculo, String ocupacion, String estadoCivil) {
 		super();
 		this.vehiculo = vehiculo;
@@ -80,4 +84,6 @@ public class Comprador extends Persona implements Serializable {
 		}
 		return false;
 	}
+
+	
 }

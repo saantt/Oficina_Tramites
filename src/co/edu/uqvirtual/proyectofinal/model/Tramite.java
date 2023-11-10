@@ -29,7 +29,18 @@ public class Tramite implements Serializable {
         this.tarjeta = tarjeta;
     }
 
-    public Tramite() {
+    public Tramite(Tramitador tramitador, Secretaria secretaria, Propietario propietario, Comprador comprador,
+			Vehiculo vehiculo, SedeTransito sedeTransito) {
+		super();
+		this.tramitador = tramitador;
+		this.secretaria = secretaria;
+		this.propietario = propietario;
+		this.comprador = comprador;
+		this.vehiculo = vehiculo;
+		this.sedeTransito = sedeTransito;
+	}
+
+	public Tramite() {
     }
 
     public Tramitador getTramitador() {
