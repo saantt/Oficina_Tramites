@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="243.0" prefWidth="394.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.NotificacionesController">
+    <children>
+        <TabPane fx:id="tapPane_RecuperarPassword" layoutX="2.0" layoutY="-3.0" prefHeight="349.0" prefWidth="388.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabRecup_Correo" text="Correo">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="388.0">
+                            <children>
+                                <Label layoutX="32.0" layoutY="25.0" text="Notificar Comprador">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                </Label>
+                                <Separator layoutX="32.0" layoutY="55.0" prefWidth="200.0" />
+                                <TextField fx:id="txtCorreoRecuperacion" layoutX="32.0" layoutY="138.0" prefHeight="25.0" prefWidth="247.0" />
+                                <Label layoutX="32.0" layoutY="95.0" prefHeight="19.0" prefWidth="294.0" text="Digite el correo del comprador el cual sera notificado" />
+                                <Button fx:id="bttEnviarCorreo" layoutX="287.0" layoutY="138.0" mnemonicParsing="false" onAction="#bttEnviarCorreo_Action" text="Enviar" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

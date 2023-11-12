@@ -144,6 +144,7 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		carro.setSeguro("SI");
 		carro.setTecnicoMecanica("SI");
 		carro.setTipoCombustible("DIESEL");
+		comprador.setVehiculo(carro);
 
 		SedeTransito sede = new SedeTransito();
 		sede.setCiudades(ciudades.ARMENIA);
@@ -153,6 +154,7 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		sede.setPropietario(propietario);
 		sede.setVehiculo(carro);
 		carro.setSedeTransito(sede);
+		
 
 		Tarjeta tarjeta = new Tarjeta();
 		tarjeta.setPropietario(propietario);
@@ -245,6 +247,7 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		carro1.setSeguro("SI");
 		carro1.setTecnicoMecanica("SI");
 		carro1.setTipoCombustible("GASOLINA");
+		comprador1.setVehiculo(carro1);
 
 		SedeTransito sede1 = new SedeTransito();
 		sede1.setCiudades(ciudades.BUCARAMANGA);

@@ -85,7 +85,8 @@ public class TramitadorTramitesViewController {
 	private TableColumn<Tramite, Vehiculo> tbwColumVehiculoTramite;
 
 	@FXML
-	void entregarTarjetaa(ActionEvent event) {
+	void entregarTarjetaa(ActionEvent event) throws IOException {
+		aplicacion.abrirEnviarNotificacion();
 
 	}
 

@@ -212,6 +212,15 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
+	public Comprador obtenerCompradorCorreo(String idComprador) {
+		for (Comprador comprador : listaComprador) {
+			if (comprador.getEmail().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
 
 	public Comprador obtenerEmailComprador(String correo) {
 		for (Comprador comprador : listaComprador) {

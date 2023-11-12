@@ -5,6 +5,7 @@ import co.edu.uqvirtual.proyectofinal.controllers.LoginCompradorViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.LoginPropietarioViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.LoginSecretariaViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.LoginTramitadorViewController;
+import co.edu.uqvirtual.proyectofinal.controllers.NotificacionesController;
 import co.edu.uqvirtual.proyectofinal.controllers.RecuperarPassCompradorController;
 import co.edu.uqvirtual.proyectofinal.controllers.RecuperarPassPropietario;
 import co.edu.uqvirtual.proyectofinal.controllers.RegistroCompradorController;
@@ -191,5 +192,18 @@ public class Aplicacion extends Application {
 
 
     }
+    public void abrirEnviarNotificacion() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/EnviarCorreoNotificacion.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        NotificacionesController vcc = (NotificacionesController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    
+   
     
 }
