@@ -26,10 +26,9 @@
       </Button>
       <TableView fx:id="tblwTramites" layoutX="33.0" layoutY="143.0" prefHeight="291.0" prefWidth="377.0">
          <columns>
-            <TableColumn fx:id="tbwColumVehiculoTramite" prefWidth="93.0" text="Vehiculo" />
-            <TableColumn fx:id="tbwColumPropietarioTramite" prefWidth="97.0" text="Propietario" />
-            <TableColumn fx:id="tbwColumCompradorTramite" prefWidth="101.0" text="Comprador" />
-            <TableColumn fx:id="tbwColumCiudadTramite" prefWidth="93.0" text="Ciudad" />
+            <TableColumn fx:id="tbwColumVehiculoTramite" prefWidth="115.20000457763672" text="Vehiculo" />
+            <TableColumn fx:id="tbwColumPropietarioTramite" prefWidth="136.80001831054688" text="Propietario" />
+            <TableColumn fx:id="tbwColumCompradorTramite" prefWidth="125.60003662109375" text="Comprador" />
          </columns>
       </TableView>
       <Label layoutX="617.0" layoutY="101.0" text="Lista Tramites Realizados" textAlignment="RIGHT">
@@ -60,11 +59,9 @@
       </Button>
       <TableView fx:id="tblwTramitesPendientes" layoutX="501.0" layoutY="143.0" prefHeight="291.0" prefWidth="377.0">
          <columns>
-            <TableColumn fx:id="tbwColumVehiculoPendiente" prefWidth="78.0" text="Vehiculo" />
-            <TableColumn fx:id="tbwColumPropietarioPendiente" prefWidth="84.0" text="Propietario" />
-            <TableColumn fx:id="tbwColumCompradorPendiente" prefWidth="82.0" text="Comprador" />
-            <TableColumn fx:id="tbwColumCiudadPendiente" prefWidth="67.0" text="Ciudad" />
-            <TableColumn fx:id="tbwColumCorreoPendiente" prefWidth="65.0" text="Correo" />
+            <TableColumn fx:id="tbwColumVehiculoPendiente" prefWidth="130.39999389648438" text="Vehiculo" />
+            <TableColumn fx:id="tbwColumPropietarioPendiente" prefWidth="115.20001220703125" text="Propietario" />
+            <TableColumn fx:id="tbwColumCompradorPendiente" prefWidth="131.20001220703125" text="Comprador" />
          </columns>
       </TableView>
       <Button fx:id="btnLlenarFormualrio" layoutX="375.0" layoutY="482.0" mnemonicParsing="false" onAction="#llenarFormulario" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #FFFF00;" text="LLENAR FORMULARIO">

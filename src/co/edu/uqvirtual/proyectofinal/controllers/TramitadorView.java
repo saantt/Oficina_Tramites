@@ -63,6 +63,9 @@ public class TramitadorView {
 	public ArrayList<Tramite> obtenerTramites(){
         return  modelFactoryController.obtenerTramitess();
     }
+	public ArrayList<Tramite> obtenerTramitesRealizados(){
+        return  modelFactoryController.obtenerTramitesRealizados();
+    }
 
 
 }

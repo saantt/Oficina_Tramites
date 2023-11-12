@@ -14,19 +14,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TramitadorTramitesViewController {
 
 	Aplicacion aplicacion;
+	public void setListaTramitesData(ObservableList<Tramite> listaTramitesData) {
+		this.listaTramitesData = listaTramitesData;
+	}
+
+	public void setListaTramitesRealizadosData(ObservableList<Tramite> listaTramitesRealizadosData) {
+		this.listaTramitesRealizadosData = listaTramitesRealizadosData;
+	}
+	
+
 	Tramite tramiteSeleccionado;
 	ModelFactoryController modelFactoryController;
 	TramitadorView tramitadorView;
 
 	ObservableList<Tramite> listaTramitesData = FXCollections.observableArrayList();
+	ObservableList<Tramite> listaTramitesRealizadosData = FXCollections.observableArrayList();
+	
+	
+	
 	@FXML
 	private ResourceBundle resources;
 
@@ -49,31 +64,22 @@ public class TramitadorTramitesViewController {
 	private TableView<Tramite> tblwTramites;
 
 	@FXML
-	private TableView<?> tblwTramitesPendientes;
+	private TableView<Tramite> tblwTramitesPendientes;
 
 	@FXML
-	private TableColumn<?, ?> tbwColumCiudadPendiente;
-
-	@FXML
-	private TableColumn<Tramite, String> tbwColumCiudadTramite;
-
-	@FXML
-	private TableColumn<?, ?> tbwColumCompradorPendiente;
+	private TableColumn<Tramite, Comprador> tbwColumCompradorPendiente;
 
 	@FXML
 	private TableColumn<Tramite, Comprador> tbwColumCompradorTramite;
 
 	@FXML
-	private TableColumn<?, ?> tbwColumCorreoPendiente;
-
-	@FXML
-	private TableColumn<?, ?> tbwColumPropietarioPendiente;
+	private TableColumn<Tramite, Propietario> tbwColumPropietarioPendiente;
 
 	@FXML
 	private TableColumn<Tramite, Propietario> tbwColumPropietarioTramite;
 
 	@FXML
-	private TableColumn<?, ?> tbwColumVehiculoPendiente;
+	private TableColumn<Tramite, Vehiculo> tbwColumVehiculoPendiente;
 
 	@FXML
 	private TableColumn<Tramite, Vehiculo> tbwColumVehiculoTramite;
@@ -92,11 +98,13 @@ public class TramitadorTramitesViewController {
 
 	@FXML
 	void realizarTramite(ActionEvent event) {
+		enviarTramite();
 
 	}
 
 	@FXML
 	void tramiteRelacionado(ActionEvent event) {
+		mostrarInformacion();
 
 	}
 
@@ -105,6 +113,7 @@ public class TramitadorTramitesViewController {
 		modelFactoryController = ModelFactoryController.getInstance();
 		tramitadorView = new TramitadorView(modelFactoryController);
 		inicializarTramites();
+		inicializarTramitesPendientes();
 
 	}
 
@@ -117,19 +126,83 @@ public class TramitadorTramitesViewController {
 	}
 
 	public void inicializarTramites() {
-		this.tbwColumCiudadTramite.setCellValueFactory(new PropertyValueFactory<>("Ciudad"));
+
+		this.tbwColumCompradorPendiente.setCellValueFactory(new PropertyValueFactory<>("Comprador"));
+		this.tbwColumPropietarioPendiente.setCellValueFactory(new PropertyValueFactory<>("Propietario"));
+		this.tbwColumVehiculoPendiente.setCellValueFactory(new PropertyValueFactory<>("Vehiculo"));
+
+		tblwTramites.getItems().clear();
+		tblwTramites.setItems(getListaTramitesData());
+		tblwTramites.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+
+			tramiteSeleccionado = newSelection;
+		});
+
+	}
+
+	public void inicializarTramitesPendientes() {
+
 		this.tbwColumCompradorTramite.setCellValueFactory(new PropertyValueFactory<>("Comprador"));
 		this.tbwColumPropietarioTramite.setCellValueFactory(new PropertyValueFactory<>("Propietario"));
 		this.tbwColumVehiculoTramite.setCellValueFactory(new PropertyValueFactory<>("Vehiculo"));
 
-		tblwTramites.getItems().clear();
-		tblwTramites.setItems(getListaTramitesData());
+		tblwTramitesPendientes.getItems().clear();
+		tblwTramitesPendientes.setItems(getListaTramitesRealizadosData());
+		tblwTramitesPendientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+
+			tramiteSeleccionado = newSelection;
+		});
 
 	}
 
 	public ObservableList<Tramite> getListaTramitesData() {
 		listaTramitesData.addAll(tramitadorView.obtenerTramites());
 		return listaTramitesData;
+	}
+
+	public ObservableList<Tramite> getListaTramitesRealizadosData() {
+		listaTramitesRealizadosData.addAll(tramitadorView.obtenerTramitesRealizados());
+		return listaTramitesRealizadosData;
+	}
+
+	public void mostrarInformacion() {
+		String correoComprador;
+		Ciudades ciudad;
+		if (tramiteSeleccionado != null) {
+			ciudad = tramiteSeleccionado.getSedeTransito().getCiudades();
+			correoComprador = tramiteSeleccionado.getComprador().getEmail();
+			mostrarMensaje("Notificaci�n Tramite", "Tramite Realizado con exito",
+					"Para entregar la tarjeta notifique al comprador al siguiente correo  " + correoComprador
+							+ " y la ciudad " + ciudad,
+					AlertType.CONFIRMATION);
+		} else {
+			mostrarMensaje("Notificaci�n Tramite", "Tramite NO Realizado", "Seleccione el tramite que desea Notificar",
+					AlertType.ERROR);
+		}
+	}
+
+	public void enviarTramite() {
+		Ciudades ciudad;
+		if (tramiteSeleccionado != null) {
+			ciudad = tramiteSeleccionado.getSedeTransito().getCiudades();
+			mostrarMensaje("Notificaci�n Tramite", "Tramite Enviado a Sede de transito " + ciudad,
+					"El Tramite se ha enviado con �xito", AlertType.CONFIRMATION);
+		} else {
+			mostrarMensaje("Notificaci�n Tramite", "Tramite NO seleccionado", "El Tramite NO se ha enviado con �xito",
+					AlertType.ERROR);
+		}
+
+	}
+
+	private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
+
+		Alert alert = new Alert(alertType);
+
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+
 	}
 
 }

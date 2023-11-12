@@ -27,6 +27,8 @@ public class Oficina implements lOficinaService, Serializable {
 	private ArrayList<Tarjeta> listaTarjeta = new ArrayList<Tarjeta>();
 	private ArrayList<Tramitador> listaTramitador = new ArrayList<Tramitador>();
 	private ArrayList<SedeTransito> listaSedes = new ArrayList<SedeTransito>();
+	private ArrayList<Tramite> listaTramiteRealizado = new ArrayList<Tramite>();
+	private ArrayList<Tramite> listaTramiteSecretaria = new ArrayList<Tramite>();
 
 	public Oficina() {
 	}
@@ -47,6 +49,22 @@ public class Oficina implements lOficinaService, Serializable {
 		this.listaCamion = listaCamion;
 		this.listaTarjeta = listaTarjeta;
 		this.listaTramitador = listaTramitador;
+	}
+
+	public ArrayList<Tramite> getListaTramiteSecretaria() {
+		return listaTramiteSecretaria;
+	}
+
+	public void setListaTramiteSecretaria(ArrayList<Tramite> listaTramiteSecretaria) {
+		this.listaTramiteSecretaria = listaTramiteSecretaria;
+	}
+
+	public ArrayList<Tramite> getListaTramiteRealizado() {
+		return listaTramiteRealizado;
+	}
+
+	public void setListaTramiteRealizado(ArrayList<Tramite> listaTramiteRealizado) {
+		this.listaTramiteRealizado = listaTramiteRealizado;
 	}
 
 	public ArrayList<SedeTransito> getListaSedes() {
@@ -227,6 +245,15 @@ public class Oficina implements lOficinaService, Serializable {
 	@Override
 	public ArrayList<Comprador> obtenerCompradors() {
 		return getListaComprador();
+	}
+	
+	
+	public ArrayList<Tramite> obtenerTramitesRealizados() {
+		return getListaTramiteRealizado();
+	}
+	
+	public ArrayList<Tramite> obtenerTramitesSecretaria() {
+		return getListaTramiteSecretaria();
 	}
 
 	// -----------------PROPIETARIO--------------------------

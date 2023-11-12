@@ -72,7 +72,7 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		comprador.setCelular("3128864250");
 		comprador.setContraenia("Santiago05$");
 		comprador.setDireccion("Ciuadela Comfenalco mz H39");
-		comprador.setEmail("ryrivera@uniquindio.edu.co");
+		comprador.setEmail("Sgomeeez05@gmail.com");
 		comprador.setEstadoCivil("Soltero");
 		comprador.setGenero("Hombre");
 		comprador.setOcupacion("Estudiante");
@@ -267,16 +267,21 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		tramite1.setTarjeta(tarjeta1);
 		tramite1.setTramitador(tramitador1);
 		tramite1.setVehiculo(carro1);
-
+		
+		
+		
+		oficina.getListaTramiteSecretaria().add(tramite);
 		oficina.getListaTramite().add(tramite);
 		oficina.getListaTarjeta().add(tarjeta);
 		oficina.getListaVehiculo().add(carro);
+		
 		oficina.getListaSedes().add(sede);
 		oficina.getListaPersona().add(secretaria);
 		oficina.getListaTramitador().add(tramitador);
 		oficina.getListaPropietario().add(propietario);
 		oficina.getListaComprador().add(comprador);
 		oficina.getListaTramite().add(tramite1);
+		oficina.getListaTramiteSecretaria().add(tramite1);
 		oficina.getListaTarjeta().add(tarjeta1);
 		oficina.getListaVehiculo().add(carro1);
 		oficina.getListaSedes().add(sede1);
@@ -680,6 +685,16 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 	public ArrayList<Tramite> obtenerTramitess() {
 		// TODO Auto-generated method stub
 		return getOficina().obtenerTramites();
+	}
+	
+	public ArrayList<Tramite> obtenerTramitesRealizados() {
+		// TODO Auto-generated method stub
+		return getOficina().obtenerTramitesRealizados();
+	}
+	
+	public ArrayList<Tramite> obtenerTramitesSecretaria() {
+		// TODO Auto-generated method stub
+		return getOficina().obtenerTramitesSecretaria();
 	}
 
 	public Tramitador validarIngresoTramitador(String usuario, String contraseña) {
