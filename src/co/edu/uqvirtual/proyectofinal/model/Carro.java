@@ -50,11 +50,7 @@ public class Carro extends Vehiculo implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Carro{" +
-                "multas='" + multas + '\'' +
-                ", tipoCombustible='" + tipoCombustible + '\'' +
-                ", fechaCompra='" + fechaCompra + '\'' +
-                '}';
-    }
+	public String toString() {
+		return  placa;
+	}
 }

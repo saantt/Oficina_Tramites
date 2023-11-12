@@ -104,15 +104,7 @@ public Secretaria(){
     }
 
     @Override
-    public String toString() {
-        return "Secretaria{" +
-                "salario='" + salario + '\'' +
-                ", educacion='" + educacion + '\'' +
-                ", nacionalidad='" + nacionalidad + '\'' +
-                ", discapacidad='" + discapacidad + '\'' +
-                ", estadoCivil='" + estadoCivil + '\'' +
-                ", certificaciones='" + certificaciones + '\'' +
-                ", sedeTransito=" + sedeTransito +
-                '}';
-    }
+	public String toString() {
+		return   nombre ;
+	}
 }

@@ -3,10 +3,15 @@ package co.edu.uqvirtual.proyectofinal.aplicacion;
 
 import co.edu.uqvirtual.proyectofinal.controllers.LoginCompradorViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.LoginPropietarioViewController;
+import co.edu.uqvirtual.proyectofinal.controllers.LoginSecretariaViewController;
+import co.edu.uqvirtual.proyectofinal.controllers.LoginTramitadorViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.RecuperarPassCompradorController;
 import co.edu.uqvirtual.proyectofinal.controllers.RecuperarPassPropietario;
 import co.edu.uqvirtual.proyectofinal.controllers.RegistroCompradorController;
 import co.edu.uqvirtual.proyectofinal.controllers.RegistroPropietarioController;
+import co.edu.uqvirtual.proyectofinal.controllers.SecretariaViewController;
+import co.edu.uqvirtual.proyectofinal.controllers.TramitadorFormulariosController;
+import co.edu.uqvirtual.proyectofinal.controllers.TramitadorTramitesViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.VistaInicialController;
 import co.edu.uqvirtual.proyectofinal.model.Oficina;
 import javafx.application.Application;
@@ -128,5 +133,63 @@ public class Aplicacion extends Application {
   		stage.setResizable(false);
   		stage.show();
   	}
+    public void abrirLoginTramitador() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/LoginTramitadorView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        LoginTramitadorViewController vcc = (LoginTramitadorViewController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    public void abrirLoginSecretaria() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/LoginSecretariaView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        LoginSecretariaViewController vcc = (LoginSecretariaViewController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    
+    public void abrirTramitadorTramites() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/TramitadorTramitesView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        TramitadorTramitesViewController vcc = (TramitadorTramitesViewController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    
+    public void abrirSecretariaView() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/SecretariaView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        SecretariaViewController vcc = (SecretariaViewController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    
+    public void abrirTramitadorFormularios() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/TramitadorFormularioView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        TramitadorFormulariosController vcc = (TramitadorFormulariosController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
     
 }

@@ -44,7 +44,7 @@ public class Propietario extends Persona implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Propietario{" + "ocupacion='" + ocupacion + '\'' + ", estadoCivil='" + estadoCivil + '\'' + '}';
+		return   nombre ;
 	}
 
 	public boolean validarExistencia(String usuario, String password) {
@@ -73,6 +73,10 @@ public class Propietario extends Persona implements Serializable {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public void setNombre(String nombre) {

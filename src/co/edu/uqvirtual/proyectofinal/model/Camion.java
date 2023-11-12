@@ -50,11 +50,7 @@ public class Camion extends Vehiculo implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Camion{" +
-                "tipoCombustible='" + tipoCombustible + '\'' +
-                ", capacidadCarga='" + capacidadCarga + '\'' +
-                ", añoFabricacion='" + añoFabricacion + '\'' +
-                '}';
-    }
+	public String toString() {
+		return  placa;
+	}
 }

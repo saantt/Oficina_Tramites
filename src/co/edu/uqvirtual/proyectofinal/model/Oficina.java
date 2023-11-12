@@ -26,6 +26,7 @@ public class Oficina implements lOficinaService, Serializable {
 	private ArrayList<Camion> listaCamion = new ArrayList<Camion>();
 	private ArrayList<Tarjeta> listaTarjeta = new ArrayList<Tarjeta>();
 	private ArrayList<Tramitador> listaTramitador = new ArrayList<Tramitador>();
+	private ArrayList<SedeTransito> listaSedes = new ArrayList<SedeTransito>();
 
 	public Oficina() {
 	}
@@ -46,6 +47,14 @@ public class Oficina implements lOficinaService, Serializable {
 		this.listaCamion = listaCamion;
 		this.listaTarjeta = listaTarjeta;
 		this.listaTramitador = listaTramitador;
+	}
+
+	public ArrayList<SedeTransito> getListaSedes() {
+		return listaSedes;
+	}
+
+	public void setListaSedes(ArrayList<SedeTransito> listaSedes) {
+		this.listaSedes = listaSedes;
 	}
 
 	public String getNombre() {
@@ -353,6 +362,7 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return comprador1;
 	}
+	
 	public Propietario validarCorreoPropietario(String correo) {
 		Propietario comprador1 = null;
 
@@ -371,5 +381,165 @@ public class Oficina implements lOficinaService, Serializable {
 		return comprador1;
 	}
 	
+	
+	public Tramitador obtenerTramitador(String idComprador) {
+		for (Tramitador comprador : listaTramitador) {
+			if (comprador.getCedula().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
+	
+
+	public boolean verificarTramitadorExistente(String cedula) {
+		Tramitador propietario = null;
+		propietario = obtenerTramitador(cedula);
+		if (propietario == null)
+			return false;
+		else
+			return true;
+	}
+
+	
+	public ArrayList<Tramitador> obtenerTramitadores() {
+		return getListaTramitador();
+	}
+	public Persona obtenerSecretaria(String idComprador) {
+		for (Persona comprador : listaPersona) {
+			if (comprador.getCedula().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
+	
+
+	public boolean verificarSecretariaExistente(String cedula) {
+		Persona propietario = null;
+		propietario = obtenerSecretaria(cedula);
+		if (propietario == null)
+			return false;
+		else
+			return true;
+	}
+
+	
+	public ArrayList<Persona> obtenerSecretarias() {
+		return getListaPersona();
+	}
+	
+	
+	public Vehiculo obtenerVehiculo(String idComprador) {
+		for (Vehiculo comprador : listaVehiculo) {
+			if (comprador.getPlaca().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
+	
+
+	public boolean verificarVehiculoExistente(String cedula) {
+		Vehiculo propietario = null;
+		propietario = obtenerVehiculo(cedula);
+		if (propietario == null)
+			return false;
+		else
+			return true;
+	}
+
+	
+	public ArrayList<Vehiculo> obtenerVehiculos() {
+		return getListaVehiculo();
+	}
+	
+	public Tramite obtenerTramite(String idComprador) {
+		for (Tramite comprador : listaTramite) {
+			if (comprador.getVehiculo().getPlaca().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
+	
+
+	public boolean verificarTramiteExistente(String cedula) {
+		Tramite propietario = null;
+		propietario = obtenerTramite(cedula);
+		if (propietario == null)
+			return false;
+		else
+			return true;
+	}
+
+	
+	public ArrayList<Tramite> obtenerTramites() {
+		return getListaTramite();
+	}
+	
+	public Tramitador validarIngresoTramitador(String usuario, String contrasena) {
+		Tramitador comprador1 = null;
+
+		boolean ingreso = false;
+		for (Tramitador comprador : listaTramitador) {
+
+			if (comprador.getUsuario().equalsIgnoreCase(usuario)
+					&& comprador.getContraenia().equalsIgnoreCase(contrasena)) {
+				comprador1 = comprador;
+				ingreso = true;
+			}
+		}
+		if (ingreso == false) {
+			return null;
+		}
+		return comprador1;
+	}
+	public Persona validarIngresoSecretaria(String usuario, String contrasena) {
+		Persona comprador1 = null;
+
+		boolean ingreso = false;
+		for (Persona comprador : listaPersona) {
+
+			if (comprador.getUsuario().equalsIgnoreCase(usuario)
+					&& comprador.getContraenia().equalsIgnoreCase(contrasena)) {
+				comprador1 = comprador;
+				ingreso = true;
+			}
+		}
+		if (ingreso == false) {
+			return null;
+		}
+		return comprador1;
+	}
+
+	public ArrayList<SedeTransito> obtenerSedes() {
+		return getListaSedes();
+	}
+	
+	public SedeTransito obtenerSedes(String idComprador) {
+		for (SedeTransito comprador : listaSedes) {
+			if (comprador.getVehiculo().getPlaca().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
+	
+
+	public boolean verificarSedeExistente(String cedula) {
+		SedeTransito propietario = null;
+		propietario = obtenerSedes(cedula);
+		if (propietario == null)
+			return false;
+		else
+			return true;
+	}
+
 
 }

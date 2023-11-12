@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="189.0" prefWidth="432.0" style="-fx-background-color: #C1F58D;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.VistaInicialController">
+<AnchorPane prefHeight="258.0" prefWidth="477.0" style="-fx-background-color: #C1F58D;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.VistaInicialController">
     <children>
         <Label layoutX="98.0" layoutY="32.0" prefHeight="39.0" prefWidth="353.0" text="OFICINA DE TRAMITES" textFill="#11a14d">
             <font>
@@ -38,5 +38,21 @@
                 <Cursor fx:constant="OPEN_HAND" />
             </cursor></Button>
         <Separator layoutX="2.0" layoutY="71.0" prefHeight="5.0" prefWidth="475.0" />
+      <Button fx:id="btnAbrirSecretaria" layoutX="274.0" layoutY="187.0" mnemonicParsing="false" onAction="#abrirSecretaria" prefHeight="39.0" prefWidth="104.0" text="SECRETARIA" textFill="#0b0000">
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAbrirTramitador" layoutX="96.0" layoutY="187.0" mnemonicParsing="false" onAction="#abriTramitador" prefHeight="39.0" prefWidth="104.0" text="TRAMITADOR" textFill="#0b0000">
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

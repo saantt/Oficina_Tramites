@@ -70,13 +70,9 @@ public class Comprador extends Persona implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Comprador{" +
-                "vehiculo=" + vehiculo +
-                ", ocupacion='" + ocupacion + '\'' +
-                ", estadoCivil='" + estadoCivil + '\'' +
-                '}';
-    }
+	public String toString() {
+		return   nombre ;
+	}
     public boolean validarExistencia(String usuario, String password) {
 		// TODO Auto-generated method stub
 		if (this.usuario.equalsIgnoreCase(usuario)&&this.contraenia.equals(password)) {

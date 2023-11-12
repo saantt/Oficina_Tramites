@@ -8,6 +8,9 @@ import co.edu.uqvirtual.proyectofinal.aplicacion.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class VistaInicialController {
 
@@ -25,6 +28,19 @@ public class VistaInicialController {
     @FXML
     private Button btnAbrirPropietario;
 
+	
+	@FXML
+	private Button btnIngresar;
+
+	@FXML
+	private Hyperlink lbltxtRecuoerarPass;
+
+	@FXML
+	private PasswordField txtContraseñaAutenticacion;
+
+	@FXML
+	private TextField txtUsuarioAutenticacion;
+
     @FXML
     void abrirComprador(ActionEvent event) throws IOException {
 
@@ -35,6 +51,16 @@ public class VistaInicialController {
     void abrirPropietario(ActionEvent event) throws IOException {
 
         aplicacion.abrirAgregarPropietario();
+    }
+    @FXML
+    void abriTramitador(ActionEvent event) throws IOException {
+    	aplicacion.abrirLoginTramitador();
+
+    }
+    @FXML
+    void abrirSecretaria(ActionEvent event) throws IOException {
+    	aplicacion.abrirLoginSecretaria();
+
     }
 
     @FXML
@@ -49,6 +75,7 @@ public class VistaInicialController {
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }
+    
 
 }
 

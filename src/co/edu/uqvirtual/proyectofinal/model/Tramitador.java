@@ -78,13 +78,7 @@ public class Tramitador extends Persona implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Tramitador{" +
-                "tramite=" + tramite +
-                ", salario='" + salario + '\'' +
-                ", nacionalidad='" + nacionalidad + '\'' +
-                ", educacion='" + educacion + '\'' +
-                ", referencias='" + referencias + '\'' +
-                '}';
-    }
+	public String toString() {
+		return   nombre ;
+	}
 }

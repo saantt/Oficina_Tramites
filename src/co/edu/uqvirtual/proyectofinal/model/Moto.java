@@ -50,11 +50,7 @@ public class Moto extends Vehiculo implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Moto{" +
-                "fechaCompra='" + fechaCompra + '\'' +
-                ", cilindraje='" + cilindraje + '\'' +
-                ", tipoMotor='" + tipoMotor + '\'' +
-                '}';
-    }
+	public String toString() {
+		return  placa;
+	}
 }

@@ -1,169 +1,156 @@
 package co.edu.uqvirtual.proyectofinal.model;
 
-
 import java.io.Serializable;
 
 public class Vehiculo implements Serializable {
-    /**
-     *
-     */
-	
-    private static final long serialVersionUID = 1L;
+	/**
+	 *
+	 */
 
-    // ATRIBUTOS
-    Comprador comprador;
-    SedeTransito sedeTransito;
-    Propietario propietario;
-    private String placa;
-    private String seguro;
-    private String modelo;
-    private String tecnicoMecanica;
-    private String kilometraje;
-    private String precio;
-    private String color;
-    private  String numeroMotor;
-    private  String accidentes;
-    private String marca;
+	private static final long serialVersionUID = 1L;
 
-    public Vehiculo() {
-    }
+	// ATRIBUTOS
+	Comprador comprador;
+	SedeTransito sedeTransito;
+	Propietario propietario;
+	protected String placa;
+	private String seguro;
+	private String modelo;
+	private String tecnicoMecanica;
+	private String kilometraje;
+	private String precio;
+	private String color;
+	private String numeroMotor;
+	private String accidentes;
+	private String marca;
 
-    public Vehiculo(Comprador comprador, SedeTransito sedeTransito, Propietario propietario, String placa, String seguro, String modelo, String tecnicoMecanica, String kilometraje, String precio, String color, String numeroMotor, String accidentes, String marca) {
-        this.comprador = comprador;
-        this.sedeTransito = sedeTransito;
-        this.propietario = propietario;
-        this.placa = placa;
-        this.seguro = seguro;
-        this.modelo = modelo;
-        this.tecnicoMecanica = tecnicoMecanica;
-        this.kilometraje = kilometraje;
-        this.precio = precio;
-        this.color = color;
-        this.numeroMotor = numeroMotor;
-        this.accidentes = accidentes;
-        this.marca = marca;
-    }
+	public Vehiculo() {
+	}
 
-    public Comprador getComprador() {
-        return comprador;
-    }
+	public Vehiculo(Comprador comprador, SedeTransito sedeTransito, Propietario propietario, String placa,
+			String seguro, String modelo, String tecnicoMecanica, String kilometraje, String precio, String color,
+			String numeroMotor, String accidentes, String marca) {
+		this.comprador = comprador;
+		this.sedeTransito = sedeTransito;
+		this.propietario = propietario;
+		this.placa = placa;
+		this.seguro = seguro;
+		this.modelo = modelo;
+		this.tecnicoMecanica = tecnicoMecanica;
+		this.kilometraje = kilometraje;
+		this.precio = precio;
+		this.color = color;
+		this.numeroMotor = numeroMotor;
+		this.accidentes = accidentes;
+		this.marca = marca;
+	}
 
-    public void setComprador(Comprador comprador) {
-        this.comprador = comprador;
-    }
+	public Comprador getComprador() {
+		return comprador;
+	}
 
-    public SedeTransito getSedeTransito() {
-        return sedeTransito;
-    }
+	public void setComprador(Comprador comprador) {
+		this.comprador = comprador;
+	}
 
-    public void setSedeTransito(SedeTransito sedeTransito) {
-        this.sedeTransito = sedeTransito;
-    }
+	public SedeTransito getSedeTransito() {
+		return sedeTransito;
+	}
 
-    public Propietario getPropietario() {
-        return propietario;
-    }
+	public void setSedeTransito(SedeTransito sedeTransito) {
+		this.sedeTransito = sedeTransito;
+	}
 
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
-    }
+	public Propietario getPropietario() {
+		return propietario;
+	}
 
-    public String getPlaca() {
-        return placa;
-    }
+	public void setPropietario(Propietario propietario) {
+		this.propietario = propietario;
+	}
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
+	public String getPlaca() {
+		return placa;
+	}
 
-    public String getSeguro() {
-        return seguro;
-    }
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
 
-    public void setSeguro(String seguro) {
-        this.seguro = seguro;
-    }
+	public String getSeguro() {
+		return seguro;
+	}
 
-    public String getModelo() {
-        return modelo;
-    }
+	public void setSeguro(String seguro) {
+		this.seguro = seguro;
+	}
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
+	public String getModelo() {
+		return modelo;
+	}
 
-    public String getTecnicoMecanica() {
-        return tecnicoMecanica;
-    }
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
 
-    public void setTecnicoMecanica(String tecnicoMecanica) {
-        this.tecnicoMecanica = tecnicoMecanica;
-    }
+	public String getTecnicoMecanica() {
+		return tecnicoMecanica;
+	}
 
-    public String getKilometraje() {
-        return kilometraje;
-    }
+	public void setTecnicoMecanica(String tecnicoMecanica) {
+		this.tecnicoMecanica = tecnicoMecanica;
+	}
 
-    public void setKilometraje(String kilometraje) {
-        this.kilometraje = kilometraje;
-    }
+	public String getKilometraje() {
+		return kilometraje;
+	}
 
-    public String getPrecio() {
-        return precio;
-    }
+	public void setKilometraje(String kilometraje) {
+		this.kilometraje = kilometraje;
+	}
 
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }
+	public String getPrecio() {
+		return precio;
+	}
 
-    public String getColor() {
-        return color;
-    }
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+	public String getColor() {
+		return color;
+	}
 
-    public String getNumeroMotor() {
-        return numeroMotor;
-    }
+	public void setColor(String color) {
+		this.color = color;
+	}
 
-    public void setNumeroMotor(String numeroMotor) {
-        this.numeroMotor = numeroMotor;
-    }
+	public String getNumeroMotor() {
+		return numeroMotor;
+	}
 
-    public String getAccidentes() {
-        return accidentes;
-    }
+	public void setNumeroMotor(String numeroMotor) {
+		this.numeroMotor = numeroMotor;
+	}
 
-    public void setAccidentes(String accidentes) {
-        this.accidentes = accidentes;
-    }
+	public String getAccidentes() {
+		return accidentes;
+	}
 
-    public String getMarca() {
-        return marca;
-    }
+	public void setAccidentes(String accidentes) {
+		this.accidentes = accidentes;
+	}
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
+	public String getMarca() {
+		return marca;
+	}
 
-    @Override
-    public String toString() {
-        return "Vehiculo{" +
-                "comprador=" + comprador +
-                ", sedeTransito=" + sedeTransito +
-                ", propietario=" + propietario +
-                ", placa='" + placa + '\'' +
-                ", seguro='" + seguro + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", tecnicoMecanica='" + tecnicoMecanica + '\'' +
-                ", kilometraje='" + kilometraje + '\'' +
-                ", precio='" + precio + '\'' +
-                ", color='" + color + '\'' +
-                ", numeroMotor='" + numeroMotor + '\'' +
-                ", accidentes='" + accidentes + '\'' +
-                ", marca='" + marca + '\'' +
-                '}';
-    }
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	@Override
+	public String toString() {
+		return  placa;
+	}
 }

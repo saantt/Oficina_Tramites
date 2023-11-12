@@ -50,11 +50,7 @@ public class Bus extends Vehiculo implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Bus{" +
-                "capacidad='" + capacidad + '\'' +
-                ", tipoCombustible='" + tipoCombustible + '\'' +
-                ", tipoBus='" + tipoBus + '\'' +
-                '}';
-    }
+	public String toString() {
+		return  placa;
+	}
 }
