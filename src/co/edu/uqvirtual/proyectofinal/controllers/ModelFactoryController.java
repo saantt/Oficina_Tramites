@@ -170,12 +170,12 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		tramite.setVehiculo(carro);
 
 		Comprador comprador1 = new Comprador();
-		comprador1.setNombre("Orlando");
-		comprador1.setCedula("1009817373");
+		comprador1.setNombre("Milton Cesar Gomez Rozo");
+		comprador1.setCedula("1006207295");
 		comprador1.setCelular("3128864250");
 		comprador1.setContraenia("OrlandoDia05$");
-		comprador1.setDireccion("Ciuadela Comfenalco mz H39");
-		comprador1.setEmail("ryrivera@uniquindio.edu.co");
+		comprador1.setDireccion("La Arcadia");
+		comprador1.setEmail("Miltoncesargomez@hotmail.com");
 		comprador1.setEstadoCivil("Soltero");
 		comprador1.setGenero("Hombre");
 		comprador1.setOcupacion("Estudiante");
