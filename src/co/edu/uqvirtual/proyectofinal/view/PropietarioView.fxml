@@ -28,7 +28,7 @@
       <ComboBox fx:id="comboPropietario" layoutX="52.0" layoutY="175.0" prefWidth="150.0" promptText="Propietario" />
       <ComboBox fx:id="comboComprador" layoutX="52.0" layoutY="229.0" prefWidth="150.0" promptText="Comprador" />
       <ComboBox fx:id="comboCiudad" layoutX="251.0" layoutY="175.0" prefWidth="150.0" promptText="Ciudad" />
-      <Button fx:id="btnAgregarVehiculo" layoutX="251.0" layoutY="224.0" mnemonicParsing="false" onAction="#agregarVehiculo" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #83072D;" text="AÑADIR VEHICULO" textFill="WHITE">
+      <Button fx:id="btnAgregarVehiculo" layoutX="265.0" layoutY="224.0" mnemonicParsing="false" onAction="#agregarVehiculo" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #83072D;" text="AÑADIR VEHICULO" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -37,6 +37,14 @@
          </cursor>
       </Button>
       <Button fx:id="btnEnviar" layoutX="263.0" layoutY="319.0" mnemonicParsing="false" onAction="#enviarDatosTramite" prefHeight="35.0" prefWidth="67.0" style="-fx-background-color: #FFFF00;" text="ENVIAR">
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnPazSalvo" layoutX="416.0" layoutY="224.0" mnemonicParsing="false" onAction="#sacarPazSalvo" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #83072D;" text="PAZ Y SALVO" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>

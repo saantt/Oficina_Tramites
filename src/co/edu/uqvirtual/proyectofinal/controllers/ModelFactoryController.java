@@ -67,12 +67,12 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 
 		// cargarRecursoXML();
 		Comprador comprador = new Comprador();
-		comprador.setNombre("Santiago");
-		comprador.setCedula("1004961129");
-		comprador.setCelular("3128864250");
+		comprador.setNombre("Camila Hernandez");
+		comprador.setCedula("1104544039");
+		comprador.setCelular("3216040238");
 		comprador.setContraenia("Santiago05$");
-		comprador.setDireccion("Ciuadela Comfenalco mz H39");
-		comprador.setEmail("Sgomeeez05@gmail.com");
+		comprador.setDireccion("Torre Verde");
+		comprador.setEmail("camilahernandezpena@gmail.com");
 		comprador.setEstadoCivil("Soltero");
 		comprador.setGenero("Hombre");
 		comprador.setOcupacion("Estudiante");
@@ -170,12 +170,12 @@ public class ModelFactoryController implements lModelFactoryService, Runnable {
 		tramite.setVehiculo(carro);
 
 		Comprador comprador1 = new Comprador();
-		comprador1.setNombre("Milton Cesar Gomez Rozo");
-		comprador1.setCedula("1006207295");
-		comprador1.setCelular("3128864250");
+		comprador1.setNombre("Raul ");
+		comprador1.setCedula("85555222");
+		comprador1.setCelular("3128028428");
 		comprador1.setContraenia("OrlandoDia05$");
-		comprador1.setDireccion("La Arcadia");
-		comprador1.setEmail("Miltoncesargomez@hotmail.com");
+		comprador1.setDireccion("Barrio la milagrosa");
+		comprador1.setEmail("ryrivera@uniquindio.edu.co");
 		comprador1.setEstadoCivil("Soltero");
 		comprador1.setGenero("Hombre");
 		comprador1.setOcupacion("Estudiante");

@@ -67,7 +67,7 @@ public class NotificacionesController {
 
 			EnvioCorreos correoRecuperacion = new EnvioCorreos();
 			correoRecuperacion.createEmail(correo, "SU TARJETA DE PROPIEDAD YA ESTA DISPONIBLE",
-					"Tu tareta de propiedad ya esta lista, dirigite a la oficina 'Tramites Quindio' para reclamarla \n :"
+					"Tu tarjeta de propiedad ya esta lista, dirigete a la oficina 'Tramites Quindio' para reclamarla \n :"
 							+ "CEDULA: " + comprador.getCedula() + "\n" + "CELULAR: " + comprador.getCelular() + " \n "
 							+ "DIRECCION: " + comprador.getDireccion() + "\n" + "EMAIL: " + comprador.getEmail() + "\n"
 							+ "VEHICULO: " + comprador.getVehiculo() + "\n");

@@ -60,6 +60,7 @@
             <PasswordField fx:id="txtPreguntaSeguridad" layoutX="624.0" layoutY="172.0" prefHeight="26.0" prefWidth="119.0" />
             <Label layoutX="517.0" layoutY="212.0" text="Respuesta" />
             <Label layoutX="483.0" layoutY="184.0" text="Pregunta de Seguridad" />
+            <Label layoutX="469.0" layoutY="93.0" text="Cedula Escaneada" />
             </children>
         </AnchorPane>
         <Label layoutX="319.0" layoutY="11.0" text="PROPIETARIO" textFill="#11a14d">
