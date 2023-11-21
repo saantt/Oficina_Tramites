@@ -25,7 +25,23 @@ public class Carro extends Vehiculo implements Serializable {
         this.fechaCompra = fechaCompra;
     }
 
-    public String getMultas() {
+    public Carro(Comprador comprador, SedeTransito sedeTransito, Propietario propietario, String placa, String seguro,
+			String modelo, String tecnicoMecanica, String kilometraje, String precio, String color, String numeroMotor,
+			String accidentes, String marca, String imagen) {
+		super(comprador, sedeTransito, propietario, placa, seguro, modelo, tecnicoMecanica, kilometraje, precio, color,
+				numeroMotor, accidentes, marca, imagen);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Carro(Comprador comprador, SedeTransito sedeTransito, Propietario propietario, String placa, String seguro,
+			String modelo, String tecnicoMecanica, String kilometraje, String precio, String color, String numeroMotor,
+			String accidentes, String marca) {
+		super(comprador, sedeTransito, propietario, placa, seguro, modelo, tecnicoMecanica, kilometraje, precio, color,
+				numeroMotor, accidentes, marca);
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getMultas() {
         return multas;
     }
 

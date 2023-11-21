@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="364.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.TramitadorFormulariosController">
+<AnchorPane prefHeight="364.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.PazSalvoController">
    <children>
       <Label layoutX="19.0" layoutY="26.0" text="TRAMITES QUINDIO" textAlignment="RIGHT" textFill="#198754">
          <font>
@@ -23,8 +23,12 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="133.0" layoutY="135.0" />
-      <Label layoutX="37.0" layoutY="139.0" text="Placa Vehiculo:" />
-      <Label layoutX="19.0" layoutY="212.0" text="Agregar Improntas Vehiculo" />
+      <TextField fx:id="txtPlaca" layoutX="133.0" layoutY="99.0" />
+      <Label layoutX="19.0" layoutY="103.0" text="Placa Vehiculo:" />
+      <Label layoutX="146.0" layoutY="191.0" text="Agregar Estampillas" />
+      <TextField fx:id="txtImagenEstampillas" layoutX="19.0" layoutY="223.0" prefHeight="26.0" prefWidth="225.0" />
+      <Button fx:id="btnAgregarImgen" layoutX="265.0" layoutY="224.0" mnemonicParsing="false" onAction="#agrgarImagen" prefHeight="26.0" prefWidth="130.0" text="Agregar Imagen" />
+      <Label layoutX="19.0" layoutY="145.0" text="Correo Comprador" />
+      <TextField fx:id="txtCorreo" layoutX="133.0" layoutY="141.0" />
    </children>
 </AnchorPane>

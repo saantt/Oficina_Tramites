@@ -1,6 +1,5 @@
 package co.edu.uqvirtual.proyectofinal.model;
 
-
 import co.edu.uqvirtual.proyectofinal.model.services.lOficinaService;
 
 import java.io.Serializable;
@@ -29,8 +28,14 @@ public class Oficina implements lOficinaService, Serializable {
 	private ArrayList<SedeTransito> listaSedes = new ArrayList<SedeTransito>();
 	private ArrayList<Tramite> listaTramiteRealizado = new ArrayList<Tramite>();
 	private ArrayList<Tramite> listaTramiteSecretaria = new ArrayList<Tramite>();
+	private ArrayList<Solicitud> listaSolicitudes = new ArrayList<Solicitud>();
 
 	public Oficina() {
+		this.listaVehiculo =new ArrayList<>();
+		this.listaComprador= new ArrayList<>();
+		this.listaPropietario=new ArrayList<>();
+		this.listaTramite = new ArrayList<>();
+		this.listaSolicitudes = new ArrayList<>();
 	}
 
 	public Oficina(String nombre, ArrayList<Persona> listaPersona, ArrayList<Comprador> listaComprador,
@@ -49,6 +54,14 @@ public class Oficina implements lOficinaService, Serializable {
 		this.listaCamion = listaCamion;
 		this.listaTarjeta = listaTarjeta;
 		this.listaTramitador = listaTramitador;
+	}
+
+	public ArrayList<Solicitud> getListaSolicitudes() {
+		return listaSolicitudes;
+	}
+
+	public void setListaSolicitudes(ArrayList<Solicitud> listaSolicitudes) {
+		this.listaSolicitudes = listaSolicitudes;
 	}
 
 	public ArrayList<Tramite> getListaTramiteSecretaria() {
@@ -181,9 +194,9 @@ public class Oficina implements lOficinaService, Serializable {
 	}
 
 	// ------------------------COMPRADOR-----------------------------------
-	@Override
 	public Comprador crearComprador(String usuario, String contraenia, String nombre, String direccion, String cedula,
-			String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad) {
+			String celular, String email, String genero, String ocupacion, String estadoCivil, String preguntaSeguridad,
+			String respuestaSeguridad, String imagen) {
 
 		Comprador comprador = null;
 
@@ -194,7 +207,7 @@ public class Oficina implements lOficinaService, Serializable {
 
 		} else {
 			comprador = new Comprador(usuario, contraenia, nombre, direccion, cedula, celular, email, genero, ocupacion,
-					estadoCivil,preguntaSeguridad,respuestaSeguridad);
+					estadoCivil, preguntaSeguridad, respuestaSeguridad, imagen);
 
 			getListaComprador().add(comprador);
 			return comprador;
@@ -202,7 +215,23 @@ public class Oficina implements lOficinaService, Serializable {
 		return comprador;
 	}
 
-	@Override
+	public Solicitud crearSolicitud(String cedulaPropietario, String cedulaComprador, Ciudades ciudad, String placa) {
+
+		Solicitud solicitud = null;
+
+		solicitud = obtenerSolicitud(placa);
+		boolean anuncianteExiste = verificarSolicitudExistente(placa);
+		if (anuncianteExiste) {
+			System.out.println("La solicitud ya existe");
+
+		} else {
+			solicitud = new Solicitud(cedulaPropietario,cedulaComprador,ciudad,placa);
+
+			getListaSolicitudes().add(solicitud);
+			return solicitud;
+		}
+		return solicitud;
+	}
 
 	public Comprador obtenerComprador(String idComprador) {
 		for (Comprador comprador : listaComprador) {
@@ -212,6 +241,16 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
+	public Solicitud obtenerSolicitud(String idComprador) {
+		for (Solicitud comprador : listaSolicitudes) {
+			if (comprador.getPlaca().equalsIgnoreCase(idComprador)) {
+				return comprador;
+			}
+		}
+		return null;
+	}
+
+
 	public Comprador obtenerCompradorCorreo(String idComprador) {
 		for (Comprador comprador : listaComprador) {
 			if (comprador.getEmail().equalsIgnoreCase(idComprador)) {
@@ -220,7 +259,6 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
-
 
 	public Comprador obtenerEmailComprador(String correo) {
 		for (Comprador comprador : listaComprador) {
@@ -240,8 +278,6 @@ public class Oficina implements lOficinaService, Serializable {
 		return null;
 	}
 
-	@Override
-
 	public boolean verificarCompradorExistente(String cedula) {
 		Comprador comprador = null;
 		comprador = obtenerComprador(cedula);
@@ -250,25 +286,31 @@ public class Oficina implements lOficinaService, Serializable {
 		else
 			return true;
 	}
+	public boolean verificarSolicitudExistente(String cedula) {
+		Solicitud comprador = null;
+		comprador = obtenerSolicitud(cedula);
+		if (comprador == null)
+			return false;
+		else
+			return true;
+	}
 
-	@Override
 	public ArrayList<Comprador> obtenerCompradors() {
 		return getListaComprador();
 	}
-	
-	
+
 	public ArrayList<Tramite> obtenerTramitesRealizados() {
 		return getListaTramiteRealizado();
 	}
-	
+
 	public ArrayList<Tramite> obtenerTramitesSecretaria() {
 		return getListaTramiteSecretaria();
 	}
 
 	// -----------------PROPIETARIO--------------------------
-	@Override
 	public Propietario crearPropietario(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad) {
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,
+			String preguntaSeguridad, String respuestaSeguridad, String imagen) {
 
 		Propietario propietario = null;
 
@@ -279,7 +321,7 @@ public class Oficina implements lOficinaService, Serializable {
 
 		} else {
 			propietario = new Propietario(usuario, contraenia, nombre, direccion, cedula, celular, email, genero,
-					ocupacion, estadoCivil,preguntaSeguridad,respuestaSeguridad);
+					ocupacion, estadoCivil, preguntaSeguridad, respuestaSeguridad, imagen);
 
 			getListaPropietario().add(propietario);
 			return propietario;
@@ -288,18 +330,14 @@ public class Oficina implements lOficinaService, Serializable {
 		return propietario;
 	}
 
-	@Override
-
 	public Propietario obtenerPropietario(String idComprador) {
-		for (Propietario comprador : listaPropietario) {
+		for (Propietario comprador : this.getListaPropietario()) {
 			if (comprador.getCedula().equalsIgnoreCase(idComprador)) {
 				return comprador;
 			}
 		}
 		return null;
 	}
-
-	@Override
 
 	public boolean verificarPropietarioExistente(String cedula) {
 		Propietario propietario = null;
@@ -310,7 +348,6 @@ public class Oficina implements lOficinaService, Serializable {
 			return true;
 	}
 
-	@Override
 	public ArrayList<Propietario> obtenerPropietarios() {
 		return getListaPropietario();
 	}
@@ -329,7 +366,7 @@ public class Oficina implements lOficinaService, Serializable {
 			}
 		}
 		if (ingreso == false) {
-//            throw new ExceptionAnunciante("No coinciden los datos");
+			//            throw new ExceptionAnunciante("No coinciden los datos");
 			return null;
 		}
 		return propietario1;
@@ -398,7 +435,7 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return comprador1;
 	}
-	
+
 	public Propietario validarCorreoPropietario(String correo) {
 		Propietario comprador1 = null;
 
@@ -416,8 +453,7 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return comprador1;
 	}
-	
-	
+
 	public Tramitador obtenerTramitador(String idComprador) {
 		for (Tramitador comprador : listaTramitador) {
 			if (comprador.getCedula().equalsIgnoreCase(idComprador)) {
@@ -426,8 +462,6 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
-
-	
 
 	public boolean verificarTramitadorExistente(String cedula) {
 		Tramitador propietario = null;
@@ -438,10 +472,10 @@ public class Oficina implements lOficinaService, Serializable {
 			return true;
 	}
 
-	
 	public ArrayList<Tramitador> obtenerTramitadores() {
 		return getListaTramitador();
 	}
+
 	public Persona obtenerSecretaria(String idComprador) {
 		for (Persona comprador : listaPersona) {
 			if (comprador.getCedula().equalsIgnoreCase(idComprador)) {
@@ -450,8 +484,6 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
-
-	
 
 	public boolean verificarSecretariaExistente(String cedula) {
 		Persona propietario = null;
@@ -462,22 +494,18 @@ public class Oficina implements lOficinaService, Serializable {
 			return true;
 	}
 
-	
 	public ArrayList<Persona> obtenerSecretarias() {
 		return getListaPersona();
 	}
-	
-	
-	public Vehiculo obtenerVehiculo(String idComprador) {
-		for (Vehiculo comprador : listaVehiculo) {
-			if (comprador.getPlaca().equalsIgnoreCase(idComprador)) {
-				return comprador;
+
+	public Vehiculo obtenerVehiculo(String placa) {
+		for (Vehiculo vehiculo : this.getListaVehiculo()) {
+			if (vehiculo.getPlaca().equalsIgnoreCase(placa)) {
+				return vehiculo;
 			}
 		}
 		return null;
 	}
-
-	
 
 	public boolean verificarVehiculoExistente(String cedula) {
 		Vehiculo propietario = null;
@@ -488,11 +516,10 @@ public class Oficina implements lOficinaService, Serializable {
 			return true;
 	}
 
-	
 	public ArrayList<Vehiculo> obtenerVehiculos() {
 		return getListaVehiculo();
 	}
-	
+
 	public Tramite obtenerTramite(String idComprador) {
 		for (Tramite comprador : listaTramite) {
 			if (comprador.getVehiculo().getPlaca().equalsIgnoreCase(idComprador)) {
@@ -501,8 +528,6 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
-
-	
 
 	public boolean verificarTramiteExistente(String cedula) {
 		Tramite propietario = null;
@@ -513,11 +538,10 @@ public class Oficina implements lOficinaService, Serializable {
 			return true;
 	}
 
-	
 	public ArrayList<Tramite> obtenerTramites() {
 		return getListaTramite();
 	}
-	
+
 	public Tramitador validarIngresoTramitador(String usuario, String contrasena) {
 		Tramitador comprador1 = null;
 
@@ -535,6 +559,7 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return comprador1;
 	}
+
 	public Persona validarIngresoSecretaria(String usuario, String contrasena) {
 		Persona comprador1 = null;
 
@@ -556,7 +581,7 @@ public class Oficina implements lOficinaService, Serializable {
 	public ArrayList<SedeTransito> obtenerSedes() {
 		return getListaSedes();
 	}
-	
+
 	public SedeTransito obtenerSedes(String idComprador) {
 		for (SedeTransito comprador : listaSedes) {
 			if (comprador.getVehiculo().getPlaca().equalsIgnoreCase(idComprador)) {
@@ -565,8 +590,6 @@ public class Oficina implements lOficinaService, Serializable {
 		}
 		return null;
 	}
-
-	
 
 	public boolean verificarSedeExistente(String cedula) {
 		SedeTransito propietario = null;
@@ -577,5 +600,75 @@ public class Oficina implements lOficinaService, Serializable {
 			return true;
 	}
 
+	public Vehiculo crearVehiculo(String placa, String seguro, String modelo, String tecnicoMecanica,
+			String kilometraje, String precio, String color, String numeroMotor, String marca, String imagen) {
+		// TODO Auto-generated method stub
+
+		Vehiculo nuevoVehiculo = obtenerVehiculo(placa);
+
+		if (nuevoVehiculo == null) {
+			nuevoVehiculo = new Vehiculo();
+			nuevoVehiculo.setPlaca(placa);
+			nuevoVehiculo.setSeguro(seguro);
+			nuevoVehiculo.setModelo(modelo);
+			nuevoVehiculo.setTecnicoMecanica(tecnicoMecanica);
+			nuevoVehiculo.setKilometraje(kilometraje);
+			nuevoVehiculo.setPrecio(precio);
+			nuevoVehiculo.setColor(color);
+			nuevoVehiculo.setNumeroMotor(numeroMotor);
+			nuevoVehiculo.setMarca(marca);
+			nuevoVehiculo.setImagen(imagen);
+
+			this.getListaVehiculo().add(nuevoVehiculo);
+			return nuevoVehiculo;
+		}
+		return null;
+	}
+
+
+	public ArrayList<Vehiculo> obtenerVehiculosPropietarios(String idComprador) {
+		ArrayList<Vehiculo>encontrados=new ArrayList<>();
+		for (Vehiculo comprador : this.getListaVehiculo()) {
+			if (comprador.getPropietario().getCedula().equalsIgnoreCase(idComprador)) {
+				encontrados.add(comprador);
+			}
+		}
+		return encontrados;
+	}
+
+	public Tramite crearTramite(Solicitud solicitudSelecciona, Tramitador tramitadorActual) {
+		// TODO Auto-generated method stub
+
+		if (!validarExistenciaAlgunTramite(solicitudSelecciona.getPlaca())) {
+			Vehiculo vehiculoSolicitud=obtenerVehiculo(solicitudSelecciona.getPlaca());
+		    Propietario propietarioAsignar=obtenerPropietario(solicitudSelecciona.getCedulaPropietario());
+		    Comprador compradorAsignar=obtenerComprador(solicitudSelecciona.getCedulaComprador());
+		    SedeTransito sede=obtenerSedeConCiudad(solicitudSelecciona.getCiudad());
+		}
+
+		return null;
+	}
+
+	private SedeTransito obtenerSedeConCiudad(Ciudades ciudad) {
+		// TODO Auto-generated method stub
+		for (SedeTransito sede : this.getListaSedes()) {
+			if (sede!=null) {
+				
+			}
+		}
+		return null;
+	}
+
+	private boolean validarExistenciaAlgunTramite(String placa) {
+		// TODO Auto-generated method stub
+		for (Tramite tramite : this.getListaTramite()) {
+			if (tramite!=null) {
+				if (tramite.validarPlacaTramite(placa)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 }

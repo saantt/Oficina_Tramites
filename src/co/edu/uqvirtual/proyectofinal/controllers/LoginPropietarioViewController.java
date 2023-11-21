@@ -52,6 +52,8 @@ public class LoginPropietarioViewController {
 	void initialize() {
 		modelFactoryController = ModelFactoryController.getInstance();
 		crudRegistroViewController = new CrudRegistroController(modelFactoryController);
+		txtUsuarioAutenticacion.setText("carr");
+		txtContraseñaAutenticacion.setText("Santiago05$");
 	}
 
 	public Aplicacion getAplicacion() {
@@ -78,7 +80,7 @@ public class LoginPropietarioViewController {
 						Alert.AlertType.INFORMATION);
 				Stage stage = (Stage) this.btnIngresar.getScene().getWindow();
 				stage.close();
-				aplicacion.abrirAgregarPropietario();
+				aplicacion.abrirEnviarSolicitud();
 			} else {
 				mostrarMensaje("Datos de acceso equivocados", null, "Asegurese de introducir los datos correctamente",
 						Alert.AlertType.ERROR);

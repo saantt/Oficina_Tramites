@@ -23,6 +23,7 @@ public class Vehiculo implements Serializable {
 	private String numeroMotor;
 	private String accidentes;
 	private String marca;
+	private String imagen;
 
 	public Vehiculo() {
 	}
@@ -43,6 +44,34 @@ public class Vehiculo implements Serializable {
 		this.numeroMotor = numeroMotor;
 		this.accidentes = accidentes;
 		this.marca = marca;
+	}
+
+	public Vehiculo(Comprador comprador, SedeTransito sedeTransito, Propietario propietario, String placa,
+			String seguro, String modelo, String tecnicoMecanica, String kilometraje, String precio, String color,
+			String numeroMotor, String accidentes, String marca, String imagen) {
+		super();
+		this.comprador = comprador;
+		this.sedeTransito = sedeTransito;
+		this.propietario = propietario;
+		this.placa = placa;
+		this.seguro = seguro;
+		this.modelo = modelo;
+		this.tecnicoMecanica = tecnicoMecanica;
+		this.kilometraje = kilometraje;
+		this.precio = precio;
+		this.color = color;
+		this.numeroMotor = numeroMotor;
+		this.accidentes = accidentes;
+		this.marca = marca;
+		this.imagen = imagen;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public Comprador getComprador() {
@@ -152,5 +181,13 @@ public class Vehiculo implements Serializable {
 	@Override
 	public String toString() {
 		return  placa;
+	}
+
+	public boolean validarPropietario(String cedulaPropietario) {
+		// TODO Auto-generated method stub
+		if (cedulaPropietario.equalsIgnoreCase(this.getPropietario().getCedula())) {
+			return true;
+		}
+		return false;
 	}
 }

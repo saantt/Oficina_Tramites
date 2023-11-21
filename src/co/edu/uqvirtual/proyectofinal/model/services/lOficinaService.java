@@ -10,7 +10,7 @@ public interface lOficinaService {
 
     //----COMPRADOR---------------
     public Comprador crearComprador(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad);
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad,String imagen);
 
 
 
@@ -22,7 +22,7 @@ public interface lOficinaService {
 
     //-----PROPIETARIO--------------------
     public Propietario crearPropietario(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad);
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad,String imagen);
 
     public Propietario obtenerPropietario(String idPropietario);
     public boolean verificarPropietarioExistente(String cedula);

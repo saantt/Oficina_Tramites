@@ -36,16 +36,16 @@ public class CrudRegistroController {
     }
 
     public Propietario crearPropietario(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad)
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad,String imagen)
             throws IOException, ClassNotFoundException{
         return modelFactoryController.crearPropietario(usuario, contraenia, nombre,  direccion,  cedula, celular, email,
                 genero,
-                ocupacion, estadoCivil,preguntaSeguridad,respuestaSeguridad);
+                ocupacion, estadoCivil,preguntaSeguridad,respuestaSeguridad,imagen);
     }
 
     public Comprador crearComprador(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad){
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad, String imagen){
         return modelFactoryController.crearComprador(usuario, contraenia,  nombre, direccion,  cedula,
-                celular, email,  genero,    ocupacion, estadoCivil,preguntaSeguridad,respuestaSeguridad);
+                celular, email,  genero,    ocupacion, estadoCivil,preguntaSeguridad,respuestaSeguridad,imagen);
     }
 }

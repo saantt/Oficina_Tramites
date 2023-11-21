@@ -4,31 +4,30 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="414.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CompradorView">
+<AnchorPane prefHeight="414.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uqvirtual.proyectofinal.controllers.PropietarioViewController">
    <children>
       <Label layoutX="117.0" layoutY="27.0" text="TRAMITES QUINDIO" textAlignment="RIGHT" textFill="#198754">
          <font>
             <Font name="System Bold Italic" size="38.0" />
          </font>
       </Label>
-      <Label layoutX="232.0" layoutY="103.0" text="Bienvenido Propietario" textAlignment="RIGHT">
+      <Label layoutX="214.0" layoutY="103.0" text="Bienvenido Propietario" textAlignment="RIGHT">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="160.0" layoutY="373.0" text="Seleccione los campos con la informacion pertinente" textAlignment="RIGHT">
+      <Label layoutX="132.0" layoutY="375.0" text="Seleccione los campos con la informacion pertinente" textAlignment="RIGHT">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboPropietario" layoutX="52.0" layoutY="175.0" prefWidth="150.0" promptText="Propietario" />
-      <ComboBox fx:id="comboComprador" layoutX="52.0" layoutY="229.0" prefWidth="150.0" promptText="Comprador" />
       <ComboBox fx:id="comboCiudad" layoutX="251.0" layoutY="175.0" prefWidth="150.0" promptText="Ciudad" />
-      <Button fx:id="btnAgregarVehiculo" layoutX="265.0" layoutY="224.0" mnemonicParsing="false" onAction="#agregarVehiculo" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #83072D;" text="AÑADIR VEHICULO" textFill="WHITE">
+      <Button fx:id="btnAgregarVehiculo" layoutX="252.0" layoutY="237.0" mnemonicParsing="false" onAction="#agregarVehiculo" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #83072D;" text="AÑADIR VEHICULO" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -36,7 +35,7 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnEnviar" layoutX="263.0" layoutY="319.0" mnemonicParsing="false" onAction="#enviarDatosTramite" prefHeight="35.0" prefWidth="67.0" style="-fx-background-color: #FFFF00;" text="ENVIAR">
+      <Button fx:id="btnEnviar" layoutX="246.0" layoutY="319.0" mnemonicParsing="false" onAction="#enviarDatosTramite" prefHeight="35.0" prefWidth="67.0" style="-fx-background-color: #FFFF00;" text="ENVIAR">
          <effect>
             <DropShadow />
          </effect>
@@ -44,7 +43,9 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnPazSalvo" layoutX="416.0" layoutY="224.0" mnemonicParsing="false" onAction="#sacarPazSalvo" prefHeight="35.0" prefWidth="121.0" style="-fx-background-color: #83072D;" text="PAZ Y SALVO" textFill="WHITE">
+      <TextField fx:id="txtCedulaCom" layoutX="84.0" layoutY="175.0" promptText="Cedula Comprador" />
+      <TextField fx:id="txtxCedulaPro" layoutX="84.0" layoutY="242.0" promptText="Cedula Propietario" />
+      <Button fx:id="btnSeleccionarVehiculo" layoutX="394.0" layoutY="237.0" mnemonicParsing="false" onAction="#seleccionarVehiculo" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #83072D;" text="SELECCIONAR VEHICULO" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>

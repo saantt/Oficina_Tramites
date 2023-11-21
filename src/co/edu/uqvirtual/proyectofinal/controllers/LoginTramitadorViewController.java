@@ -54,7 +54,8 @@ public class LoginTramitadorViewController {
     void initialize() {
     	modelFactoryController = ModelFactoryController.getInstance();
 		crudRegistroViewController = new CrudRegistroController(modelFactoryController);
-       
+		txtUsuarioAutenticacion.setText("edwin");
+		txtContraseñaAutenticacion.setText("edwinnn05$");
 
     }
     public Aplicacion getAplicacion() {

@@ -111,4 +111,12 @@ public class Tramite implements Serializable {
                 ", tarjeta=" + tarjeta +
                 '}';
     }
+
+	public boolean validarPlacaTramite(String placa) {
+		// TODO Auto-generated method stub
+		if (this.getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
+			return true;
+		}
+		return false;
+	}
 }

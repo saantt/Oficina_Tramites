@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public interface lModelFactoryService {
 
     public Propietario crearPropietario(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad) throws IOException, ClassNotFoundException;
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad,String imagen) throws IOException, ClassNotFoundException;
 
     public Propietario obtenerPropietario(String idPropietario);
     public Boolean verificarPropietarioExistente(String cedula);
     public ArrayList<Propietario> obtenerPropietarioss();
     public Comprador crearComprador(String usuario, String contraenia, String nombre, String direccion,
-			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad);
+			String cedula, String celular, String email, String genero, String ocupacion, String estadoCivil,String preguntaSeguridad, String respuestaSeguridad,String imagen);
 
     public Comprador obtenerComprador(String idComprador);
     public Boolean verificarCompradorExistente(String cedula);

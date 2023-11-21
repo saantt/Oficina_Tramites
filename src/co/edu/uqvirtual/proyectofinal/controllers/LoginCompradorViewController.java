@@ -1,5 +1,6 @@
 package co.edu.uqvirtual.proyectofinal.controllers;
 
+import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,7 +10,10 @@ import co.edu.uqvirtual.proyectofinal.model.Comprador;
 import co.edu.uqvirtual.proyectofinal.model.Propietario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 public class LoginCompradorViewController {

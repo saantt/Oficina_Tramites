@@ -53,4 +53,5 @@ public class Bus extends Vehiculo implements Serializable {
 	public String toString() {
 		return  placa;
 	}
+   
 }

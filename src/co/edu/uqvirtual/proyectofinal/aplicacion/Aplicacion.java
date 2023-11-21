@@ -6,29 +6,34 @@ import co.edu.uqvirtual.proyectofinal.controllers.LoginPropietarioViewController
 import co.edu.uqvirtual.proyectofinal.controllers.LoginSecretariaViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.LoginTramitadorViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.NotificacionesController;
+import co.edu.uqvirtual.proyectofinal.controllers.PazSalvoController;
+import co.edu.uqvirtual.proyectofinal.controllers.PropietarioViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.RecuperarPassCompradorController;
 import co.edu.uqvirtual.proyectofinal.controllers.RecuperarPassPropietario;
 import co.edu.uqvirtual.proyectofinal.controllers.RegistroCompradorController;
 import co.edu.uqvirtual.proyectofinal.controllers.RegistroPropietarioController;
+import co.edu.uqvirtual.proyectofinal.controllers.RegistroVehiculoController;
 import co.edu.uqvirtual.proyectofinal.controllers.SecretariaViewController;
+import co.edu.uqvirtual.proyectofinal.controllers.SeleccionVehiculoController;
 import co.edu.uqvirtual.proyectofinal.controllers.TramitadorFormulariosController;
 import co.edu.uqvirtual.proyectofinal.controllers.TramitadorTramitesViewController;
 import co.edu.uqvirtual.proyectofinal.controllers.VistaInicialController;
 import co.edu.uqvirtual.proyectofinal.model.Oficina;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
+import javafx.scene.layout.AnchorPane;
+
 
 import java.io.IOException;
 
 public class Aplicacion extends Application {
     private Stage primaryStage;
-    private BorderPane rootLayout;
+   // private BorderPane rootLayout;
 
     Oficina oficina = new Oficina();
 
@@ -203,6 +208,51 @@ public class Aplicacion extends Application {
 
 
     }
+    public void abrirAgregarVehiculo() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/RegistroVehiculoView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        RegistroVehiculoController vcc = (RegistroVehiculoController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    public void seleccionarVehiculo() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/SeleccionVehiculoView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        SeleccionVehiculoController vcc = (SeleccionVehiculoController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+    }
+    public void abrirEnviarSolicitud() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/PropietarioView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        PropietarioViewController vcc = (PropietarioViewController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    
+    public void abrirPazSalvo() throws IOException {
+        FXMLLoader fxmlLouder = new FXMLLoader(getClass().getResource("/co/edu/uqvirtual/proyectofinal/view/PazySalvoView.fxml"));
+        Parent root2 = (Parent) fxmlLouder.load();
+        PazSalvoController vcc = (PazSalvoController) fxmlLouder.getController();
+        vcc.setAplicacion(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
+        stage.show();
+
+
+    }
+    
     
    
     

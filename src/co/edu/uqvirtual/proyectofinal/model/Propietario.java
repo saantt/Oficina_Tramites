@@ -10,8 +10,18 @@ public class Propietario extends Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// ATRIBUTOS
+	Vehiculo vehiculo;
 	private String ocupacion;
 	private String estadoCivil;
+	String imagen;
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
+	}
 
 	public Propietario(String usuario, String contraenia, String nombre, String direccion, String cedula,
 			String celular, String email, String genero, String ocupacion, String estadoCivil, String preguntaSeguridad,
@@ -20,6 +30,35 @@ public class Propietario extends Persona implements Serializable {
 				respuestaSeguridad);
 		this.ocupacion = ocupacion;
 		this.estadoCivil = estadoCivil;
+	}
+
+	public Propietario(String usuario, String contraenia, String nombre, String direccion, String cedula,
+			String celular, String email, String genero, String ocupacion, String estadoCivil, String preguntaSeguridad,
+			String respuestaSeguridad,String imagen,Vehiculo vehiculo) {
+		super(usuario, contraenia, nombre, direccion, cedula, celular, email, genero, respuestaSeguridad,
+				respuestaSeguridad);
+		this.ocupacion = ocupacion;
+		this.estadoCivil = estadoCivil;
+		this.imagen = imagen;
+		this.vehiculo=vehiculo;
+	}
+	public Propietario(String usuario, String contraenia, String nombre, String direccion, String cedula,
+			String celular, String email, String genero, String ocupacion, String estadoCivil, String preguntaSeguridad,
+			String respuestaSeguridad,String imagen) {
+		super(usuario, contraenia, nombre, direccion, cedula, celular, email, genero, respuestaSeguridad,
+				respuestaSeguridad);
+		this.ocupacion = ocupacion;
+		this.estadoCivil = estadoCivil;
+		this.imagen = imagen;
+	
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public Propietario() {

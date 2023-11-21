@@ -15,16 +15,16 @@
     <children>
         <AnchorPane layoutX="-2.0" layoutY="79.0" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="810.0">
             <children>
-                <TextField fx:id="txtNombrePropietario" layoutX="113.0" layoutY="10.0" prefHeight="26.0" prefWidth="119.0">
+                <TextField fx:id="txtNombrePropietario" layoutX="183.0" layoutY="10.0" prefHeight="26.0" prefWidth="119.0">
                     <effect>
                         <Glow level="0.0" />
                     </effect>
                 </TextField>
                 <Label layoutX="47.0" layoutY="14.0" text="Nombre:" />
-                <Label layoutX="34.0" layoutY="52.0" text="Identificación:" />
-                <Label layoutX="263.0" layoutY="52.0" text="Direccion:" />
-                <TextField fx:id="txtDireccionPropietario" layoutX="325.0" layoutY="49.0" prefHeight="25.0" prefWidth="119.0" />
-                <TextField fx:id="txtIdentificacionPropietario" layoutX="113.0" layoutY="48.0" prefHeight="26.0" prefWidth="119.0" />
+                <Label layoutX="46.0" layoutY="52.0" text="Identificación:" />
+                <Label layoutX="331.0" layoutY="52.0" text="Direccion:" />
+                <TextField fx:id="txtDireccionPropietario" layoutX="393.0" layoutY="49.0" prefHeight="25.0" prefWidth="119.0" />
+                <TextField fx:id="txtIdentificacionPropietario" layoutX="183.0" layoutY="48.0" prefHeight="26.0" prefWidth="119.0" />
                 <Button fx:id="btnAgregarPropietario" layoutX="328.0" layoutY="261.0" mnemonicParsing="false" onAction="#agregarPropietario" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #198754;" text="REGISTRARSE" textFill="WHITE">
                     <effect>
                         <DropShadow />
@@ -32,10 +32,10 @@
                     <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                     </cursor></Button>
-                <Separator layoutX="38.0" layoutY="129.0" prefHeight="18.0" prefWidth="713.0" />
+                <Separator layoutX="38.0" layoutY="145.0" prefHeight="18.0" prefWidth="713.0" />
                 <Separator layoutX="149.0" layoutY="-1.0" prefHeight="3.0" prefWidth="602.0" />
-                <Separator layoutX="31.0" layoutY="11.0" orientation="VERTICAL" prefHeight="127.0" prefWidth="6.0" />
-                <Separator layoutX="743.0" layoutY="5.0" orientation="VERTICAL" prefHeight="134.0" prefWidth="6.0" />
+                <Separator layoutX="31.0" layoutY="11.0" orientation="VERTICAL" prefHeight="134.0" prefWidth="6.0" />
+                <Separator layoutX="743.0" layoutY="5.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="6.0" />
                 <Label layoutX="38.0" layoutY="-8.0" text="Información Personal" />
                 <Label layoutX="40.0" layoutY="157.0" text="Información Usuario" />
                 <Separator layoutX="151.0" layoutY="166.0" prefHeight="2.0" prefWidth="598.0" />
@@ -46,21 +46,23 @@
                 <TextField fx:id="txtUsuarioPropietario" layoutX="113.0" layoutY="192.0" prefHeight="26.0" prefWidth="119.0" />
                 <Label layoutX="258.0" layoutY="198.0" text="Contraseña:" />
                 <PasswordField fx:id="txtContraPropietario" layoutX="325.0" layoutY="194.0" prefHeight="26.0" prefWidth="119.0" />
-                <Label layoutX="466.0" layoutY="14.0" text="Estado Civil:" />
-                <TextField fx:id="txtEstadoCivilPropietario" layoutX="544.0" layoutY="11.0" prefHeight="25.0" prefWidth="119.0" />
-                <Label layoutX="480.0" layoutY="53.0" text="Celular" />
-                <TextField fx:id="txtCelularPropietario" layoutX="544.0" layoutY="49.0" prefHeight="25.0" prefWidth="119.0" />
-                <Label layoutX="55.0" layoutY="94.0" text="Email:" />
-                <TextField fx:id="txtEmailPropietario" layoutX="113.0" layoutY="89.0" prefHeight="26.0" prefWidth="119.0" />
-                <Label layoutX="274.0" layoutY="94.0" text="Genero" />
-                <TextField fx:id="txtGeneroPropietario" layoutX="325.0" layoutY="90.0" prefHeight="26.0" prefWidth="119.0" />
-                <Label layoutX="260.0" layoutY="14.0" text="Ocupacion:" />
-                <TextField fx:id="txtOcupacionPropietario" layoutX="325.0" layoutY="11.0" prefHeight="26.0" prefWidth="119.0" />
+                <Label layoutX="526.0" layoutY="14.0" text="Estado Civil:" />
+                <TextField fx:id="txtEstadoCivilPropietario" layoutX="604.0" layoutY="11.0" prefHeight="25.0" prefWidth="119.0" />
+                <Label layoutX="540.0" layoutY="53.0" text="Celular" />
+                <TextField fx:id="txtCelularPropietario" layoutX="604.0" layoutY="49.0" prefHeight="25.0" prefWidth="119.0" />
+                <Label layoutX="46.0" layoutY="94.0" text="Email:" />
+                <TextField fx:id="txtEmailPropietario" layoutX="183.0" layoutY="89.0" prefHeight="26.0" prefWidth="119.0" />
+                <Label layoutX="342.0" layoutY="94.0" text="Genero" />
+                <TextField fx:id="txtGeneroPropietario" layoutX="393.0" layoutY="90.0" prefHeight="26.0" prefWidth="119.0" />
+                <Label layoutX="328.0" layoutY="14.0" text="Ocupacion:" />
+                <TextField fx:id="txtOcupacionPropietario" layoutX="393.0" layoutY="11.0" prefHeight="26.0" prefWidth="119.0" />
             <PasswordField fx:id="txtRespuestaSeguridad" layoutX="624.0" layoutY="205.0" prefHeight="26.0" prefWidth="119.0" />
             <PasswordField fx:id="txtPreguntaSeguridad" layoutX="624.0" layoutY="172.0" prefHeight="26.0" prefWidth="119.0" />
             <Label layoutX="517.0" layoutY="212.0" text="Respuesta" />
             <Label layoutX="483.0" layoutY="184.0" text="Pregunta de Seguridad" />
-            <Label layoutX="469.0" layoutY="93.0" text="Cedula Escaneada" />
+            <Label layoutX="43.0" layoutY="122.0" text="Cedula Escaneada" />
+            <TextField fx:id="txtImagenCdula" editable="false" layoutX="184.0" layoutY="121.0" prefHeight="26.0" prefWidth="330.0" />
+            <Button fx:id="btnAgregarImagen" layoutX="532.0" layoutY="122.0" mnemonicParsing="false" onAction="#agregarImagen" prefHeight="26.0" prefWidth="190.0" text="Agregar imagen" />
             </children>
         </AnchorPane>
         <Label layoutX="319.0" layoutY="11.0" text="PROPIETARIO" textFill="#11a14d">

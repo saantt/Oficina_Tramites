@@ -1,5 +1,6 @@
 package co.edu.uqvirtual.proyectofinal.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +16,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 
 public class RegistroPropietarioController {
 	Aplicacion aplicacion;
@@ -24,53 +28,65 @@ public class RegistroPropietarioController {
 	CrudRegistroController crudRegistroViewController;
 	ObservableList<Propietario> listaPropietarioData = FXCollections.observableArrayList();
 	Propietario propietarioSeleccionado;
+	@FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnAgregarImagen;
+
+    @FXML
+    private Button btnAgregarPropietario;
+
+    @FXML
+    private Button btnIniciarSesionPropietario;
+
+    @FXML
+    private TextField txtCelularPropietario;
+
+    @FXML
+    private PasswordField txtContraPropietario;
+
+    @FXML
+    private TextField txtDireccionPropietario;
+
+    @FXML
+    private TextField txtEmailPropietario;
+
+    @FXML
+    private TextField txtEstadoCivilPropietario;
+
+    @FXML
+    private TextField txtGeneroPropietario;
+
+    @FXML
+    private TextField txtIdentificacionPropietario;
+
+    @FXML
+    private TextField txtImagenCdula;
+
+    @FXML
+    private TextField txtNombrePropietario;
+
+    @FXML
+    private TextField txtOcupacionPropietario;
+
     @FXML
     private PasswordField txtPreguntaSeguridad;
 
     @FXML
     private PasswordField txtRespuestaSeguridad;
 
-	@FXML
-	private ResourceBundle resources;
+    @FXML
+    private TextField txtUsuarioPropietario;
 
-	@FXML
-	private URL location;
+    @FXML
+    void agregarImagen(ActionEvent event) throws IOException {
+    	cargarImagenCancion();
 
-	@FXML
-	private Button btnAgregarPropietario;
-
-	@FXML
-	private Button btnIniciarSesionPropietario;
-
-	@FXML
-	private TextField txtCelularPropietario;
-
-	@FXML
-	private PasswordField txtContraPropietario;
-
-	@FXML
-	private TextField txtDireccionPropietario;
-
-	@FXML
-	private TextField txtEmailPropietario;
-
-	@FXML
-	private TextField txtEstadoCivilPropietario;
-
-	@FXML
-	private TextField txtGeneroPropietario;
-
-	@FXML
-	private TextField txtIdentificacionPropietario;
-
-	@FXML
-	private TextField txtNombrePropietario;
-
-	@FXML
-	private TextField txtOcupacionPropietario;
-
-	@FXML
-	private TextField txtUsuarioPropietario;
+    }
 
 	@FXML
 	void agregarPropietario(ActionEvent event) {
@@ -88,6 +104,7 @@ public class RegistroPropietarioController {
 	void initialize() {
 		modelFactoryController = ModelFactoryController.getInstance();
 		crudRegistroViewController = new CrudRegistroController(modelFactoryController);
+		txtImagenCdula.setDisable(true);
 
 	}
 
@@ -106,6 +123,7 @@ public class RegistroPropietarioController {
 		String password = txtContraPropietario.getText();
 		String pregunta = txtPreguntaSeguridad.getText();
 		String respuesta= txtRespuestaSeguridad.getText();
+		String imagen= txtImagenCdula.getText();
 
 		// 2. Validar la informaci�n
 		if (validarDatos(nombre, ocupacion, estadoCivil, identificacion, direccion, celular, email, genero, usuario,
@@ -115,8 +133,8 @@ public class RegistroPropietarioController {
 				mostrarMensaje("Notificación Comprador", "Contraseña Valida", "LA CONTRASEÑA CUMPLE CON LOS REQUISITOS",
 						Alert.AlertType.CONFIRMATION);
 				try {
-					propietario = crudRegistroViewController.crearPropietario(nombre, ocupacion, estadoCivil,
-							identificacion, direccion, celular, email, genero, usuario, password,pregunta,respuesta);
+					propietario = crudRegistroViewController.crearPropietario(usuario, password, nombre, direccion, identificacion, celular, email, genero,
+							ocupacion, estadoCivil,pregunta,respuesta,imagen);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -227,5 +245,26 @@ public class RegistroPropietarioController {
 		txtUsuarioPropietario.setText("");
 		txtContraPropietario.setText("");
 
+	}
+	private void cargarImagenCancion() throws IOException {
+
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Buscar Imagen");
+
+		// Agregar filtros para facilitar la busqueda
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", "*.jpg"), new FileChooser.ExtensionFilter("PNG", "*.png"));
+
+		// Obtener la imagen seleccionada
+		File imgFile = fileChooser.showOpenDialog(aplicacion.getPrimaryStage());
+
+		// Mostar la imagen
+		if (imgFile != null) {
+			Image image = new Image("file:" + imgFile.getAbsolutePath());
+			// String rutaAbsoluta=""+imgFile.getAbsolutePath();
+
+			txtImagenCdula.setText(imgFile.getAbsolutePath());
+
+		}
 	}
 }

@@ -23,6 +23,13 @@ public class SedeTransito implements Serializable {
 	public String toString() {
 		return  ""+ciudades ;
 	}
+    
+
+	public SedeTransito(Ciudades ciudades) {
+		super();
+		this.ciudades = ciudades;
+	}
+
 
 	public SedeTransito(Comprador comprador, Tramitador tramitador, Secretaria secretaria, Vehiculo vehiculo,
 			Ciudades ciudades, Propietario propietario) {
