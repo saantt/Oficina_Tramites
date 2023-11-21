@@ -177,4 +177,12 @@ public class Propietario extends Persona implements Serializable {
 	public void setRespuestaSeguridad(String respuestaSeguridad) {
 		this.respuestaSeguridad = respuestaSeguridad;
 	}
+
+	public boolean validarDocumento(String propietario) {
+		// TODO Auto-generated method stub
+		if (this.getCedula().equalsIgnoreCase(propietario)) {
+			return true;
+		}
+		return false;
+	}
 }

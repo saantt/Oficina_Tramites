@@ -110,14 +110,26 @@ public class TramitadorTramitesViewController {
 	void llenarFormulario(ActionEvent event) throws IOException {
 
 		generarFormulario();
-
+		cargarSolicitudes();
+		cargarTramites();
 	}
 
 	private void generarFormulario() {
 		// TODO Auto-generated method stub
 		if (solicitudSelecciona!=null) {
 			Tramite nuevoFormularioTramite=modelFactoryController.crearTramite(solicitudSelecciona);
+			if (nuevoFormularioTramite!=null) {
+				modelFactoryController.guardarXML();
+				modelFactoryController.oficina.getListaSolicitudes().remove(solicitudSelecciona);
+
+			}else {
+				System.out.print("Error al crear");
+			}
+
+		}else {
+			System.out.print("debe seleccionar una solicitud");
 		}
+
 	}
 
 	@FXML
@@ -145,7 +157,7 @@ public class TramitadorTramitesViewController {
 		inicializarSolicitudes();
 		inicializarTramites();
 		inicializarTramitesPendientes();
-		
+
 
 	}
 
@@ -157,23 +169,28 @@ public class TramitadorTramitesViewController {
 	public void setAplicacion(Aplicacion aplicacion) {
 		this.aplicacion = aplicacion;
 	}
-
-	public void inicializarTramites() {
+	@FXML
+	void inicializarTramites() {
 
 		this.tbwColumCompradorPendiente.setCellValueFactory(new PropertyValueFactory<>("Comprador"));
 		this.tbwColumPropietarioPendiente.setCellValueFactory(new PropertyValueFactory<>("Propietario"));
 		this.tbwColumVehiculoPendiente.setCellValueFactory(new PropertyValueFactory<>("Vehiculo"));
 
-		tblwTramites.getItems().clear();
-		tblwTramites.setItems(getListaTramitesData());
+
 		tblwTramites.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
 			tramiteSeleccionado = newSelection;
 		});
-
+		cargarTramites();
 	}
 
-	public void inicializarTramitesPendientes() {
+	private void cargarTramites() {
+		// TODO Auto-generated method stub
+		tblwTramites.getItems().clear();
+		tblwTramites.setItems(getListaTramitesData());
+	}
+	@FXML
+	void inicializarTramitesPendientes() {
 
 		this.tbwColumCompradorTramite.setCellValueFactory(new PropertyValueFactory<>("Comprador"));
 		this.tbwColumPropietarioTramite.setCellValueFactory(new PropertyValueFactory<>("Propietario"));
@@ -189,7 +206,7 @@ public class TramitadorTramitesViewController {
 
 	}
 	@FXML
-	public void inicializarSolicitudes() {
+	void inicializarSolicitudes() {
 
 		this.tblcCedulaCompradorSolicitud.setCellValueFactory(new PropertyValueFactory<>("CedulaComprador"));
 		this.tblcCedulaPropieatarioSolicitud.setCellValueFactory(new PropertyValueFactory<>("CedulaPropietario"));
@@ -244,8 +261,8 @@ public class TramitadorTramitesViewController {
 	public void enviarTramite() {
 		Ciudades ciudad;
 		if (tramiteSeleccionado != null) {
-			ciudad = tramiteSeleccionado.getSedeTransito().getCiudades();
-			mostrarMensaje("Notificaci�n Tramite", "Tramite Enviado a Sede de transito " + ciudad,
+			//ciudad = tramiteSeleccionado.setSedeTransito(Ciudades.ARMENIA);
+			mostrarMensaje("Notificaci�n Tramite", "Tramite Enviado a Sede de transito " ,
 					"El Tramite se ha enviado con �xito", AlertType.CONFIRMATION);
 		} else {
 			mostrarMensaje("Notificaci�n Tramite", "Tramite NO seleccionado", "El Tramite NO se ha enviado con �xito",

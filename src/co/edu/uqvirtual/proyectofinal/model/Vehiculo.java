@@ -26,6 +26,8 @@ public class Vehiculo implements Serializable {
 	private String imagen;
 
 	public Vehiculo() {
+		this.propietario = new Propietario();
+		this.comprador = new Comprador();
 	}
 
 	public Vehiculo(Comprador comprador, SedeTransito sedeTransito, Propietario propietario, String placa,

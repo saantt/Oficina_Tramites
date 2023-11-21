@@ -107,16 +107,29 @@ public class RegistroVehiculoController {
 
 		if (validarDatosRegistro(placa, seguro, modelo, tecnicoMecanica, kilometraje, precio, color, numeroMotor, marca,
 				imagen)) {
+			Vehiculo nuevoVehiculo = new Vehiculo();
+			Propietario propietario = modelFactoryController.obtenerPropietario(cedulaPro);
+			Comprador comprador = modelFactoryController.obtenerComprador(cedulaCom);
+			if (propietario == null) {
+				mostrarMensaje("nulo", "PROPIETARIO", "", AlertType.ERROR);
+			}
+			if (comprador == null) {
+				mostrarMensaje("nulo", "COMPRADOR", "", AlertType.ERROR);
+			}
+			
+			nuevoVehiculo = modelFactoryController.crearVehiculo(placa, seguro, modelo, tecnicoMecanica, kilometraje,
+					precio, color, numeroMotor, marca, imagen,propietario,comprador);
 
-			Vehiculo nuevoVehiculo = modelFactoryController.crearVehiculo(placa, seguro, modelo, tecnicoMecanica,
-					kilometraje, precio, color, numeroMotor, marca, imagen);
-//			Propietario propietario = modelFactoryController.obtenerPropietario(cedulaPro);
-//			Comprador comprador = modelFactoryController.obtenerComprador(cedulaCom);
-//			propietario.setVehiculo(nuevoVehiculo);
-//			comprador.setVehiculo(nuevoVehiculo);
-//			modelFactoryController.getOficina().getListaPropietario().add(propietario);
-//			modelFactoryController.getOficina().getListaComprador().add(comprador);
+			
+			
 
+			propietario.setVehiculo(nuevoVehiculo);
+			comprador.setVehiculo(nuevoVehiculo);
+
+			// modelFactoryController.getOficina().getListaPropietario().add(propietario);
+			// modelFactoryController.getOficina().getListaComprador().add(comprador);
+
+			modelFactoryController.guardarXML();
 			mostrarMensaje("Notificacion Vehiculo", "Vehiculo Creado", "El vehiculo se creo con exito",
 					AlertType.INFORMATION);
 			limpiarDatos();

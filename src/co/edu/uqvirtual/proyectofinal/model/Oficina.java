@@ -1,5 +1,6 @@
 package co.edu.uqvirtual.proyectofinal.model;
 
+import co.edu.uqvirtual.proyectofinal.controllers.ModelFactoryController;
 import co.edu.uqvirtual.proyectofinal.model.services.lOficinaService;
 
 import java.io.Serializable;
@@ -330,10 +331,10 @@ public class Oficina implements lOficinaService, Serializable {
 		return propietario;
 	}
 
-	public Propietario obtenerPropietario(String idComprador) {
-		for (Propietario comprador : this.getListaPropietario()) {
-			if (comprador.getCedula().equalsIgnoreCase(idComprador)) {
-				return comprador;
+	public Propietario obtenerPropietario(String propietario) {
+		for (Propietario propietarioEN : this.getListaPropietario()) {
+			if (propietarioEN.validarDocumento(propietario)) {
+				return propietarioEN;
 			}
 		}
 		return null;
@@ -601,7 +602,7 @@ public class Oficina implements lOficinaService, Serializable {
 	}
 
 	public Vehiculo crearVehiculo(String placa, String seguro, String modelo, String tecnicoMecanica,
-			String kilometraje, String precio, String color, String numeroMotor, String marca, String imagen) {
+			String kilometraje, String precio, String color, String numeroMotor, String marca, String imagen, Propietario propietario, Comprador comprador) {
 		// TODO Auto-generated method stub
 
 		Vehiculo nuevoVehiculo = obtenerVehiculo(placa);
@@ -618,6 +619,8 @@ public class Oficina implements lOficinaService, Serializable {
 			nuevoVehiculo.setNumeroMotor(numeroMotor);
 			nuevoVehiculo.setMarca(marca);
 			nuevoVehiculo.setImagen(imagen);
+			nuevoVehiculo.setPropietario(propietario);
+			nuevoVehiculo.setComprador(comprador);
 
 			this.getListaVehiculo().add(nuevoVehiculo);
 			return nuevoVehiculo;
@@ -629,9 +632,12 @@ public class Oficina implements lOficinaService, Serializable {
 	public ArrayList<Vehiculo> obtenerVehiculosPropietarios(String idComprador) {
 		ArrayList<Vehiculo>encontrados=new ArrayList<>();
 		for (Vehiculo comprador : this.getListaVehiculo()) {
-			if (comprador.getPropietario().getCedula().equalsIgnoreCase(idComprador)) {
-				encontrados.add(comprador);
+			if (comprador!=null) {
+				if (comprador.getPropietario().getCedula().equalsIgnoreCase(idComprador)) {
+					encontrados.add(comprador);
+				}
 			}
+			
 		}
 		return encontrados;
 	}
@@ -639,11 +645,25 @@ public class Oficina implements lOficinaService, Serializable {
 	public Tramite crearTramite(Solicitud solicitudSelecciona, Tramitador tramitadorActual) {
 		// TODO Auto-generated method stub
 
-		if (!validarExistenciaAlgunTramite(solicitudSelecciona.getPlaca())) {
+		if (validarExistenciaAlgunTramite(solicitudSelecciona.getPlaca())) {
 			Vehiculo vehiculoSolicitud=obtenerVehiculo(solicitudSelecciona.getPlaca());
 		    Propietario propietarioAsignar=obtenerPropietario(solicitudSelecciona.getCedulaPropietario());
 		    Comprador compradorAsignar=obtenerComprador(solicitudSelecciona.getCedulaComprador());
 		    SedeTransito sede=obtenerSedeConCiudad(solicitudSelecciona.getCiudad());
+		    
+		    
+		   
+		    
+		    Tramite nuevoTramite=new Tramite();
+		  
+		    nuevoTramite.setComprador(compradorAsignar);
+		    nuevoTramite.setPropietario(propietarioAsignar);
+		    nuevoTramite.setVehiculo(vehiculoSolicitud);
+		    nuevoTramite.setSedeTransito(sede);
+		    nuevoTramite.setTramitador(tramitadorActual);
+		   
+		    this.getListaTramite().add(nuevoTramite);
+		    return nuevoTramite;
 		}
 
 		return null;

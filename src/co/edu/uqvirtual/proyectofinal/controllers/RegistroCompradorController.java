@@ -134,12 +134,15 @@ public class RegistroCompradorController {
 					comprador = crudRegistroViewController.crearComprador(usuario, password, nombre, direccion,
 							identificacion, celular, email, genero, ocupacion, estadoCivil, pregunta, respuesta,
 							imagen);
+					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if (comprador != null) {
+					
 					listaCompradorData.add(comprador);
+					modelFactoryController.guardarXML();
 					mostrarMensaje("Notificación Comprador", "Comprador creado", "TE HAS REGISTRADO CON EXITO",
 							Alert.AlertType.INFORMATION);
 					limpiarCamposTexto();

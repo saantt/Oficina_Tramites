@@ -140,6 +140,7 @@ public class RegistroPropietarioController {
 					e.printStackTrace();
 				}
 				if (propietario != null) {
+					modelFactoryController.guardarXML();
 					listaPropietarioData.add(propietario);
 					mostrarMensaje("Notificación Propietario", "Propietario creado", "TE HAS REGISTRADO CON EXITO",
 							Alert.AlertType.INFORMATION);
